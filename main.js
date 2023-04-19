@@ -177,7 +177,7 @@ const precioMayor = (precio) => {
 }
 
 
-precioMayor(precio);
+// precioMayor(precio);
 
 // 5. Filtrar productos por precio.
 
@@ -259,3 +259,44 @@ const productoAHastaZ = () => {
 }
 
 console.log(productoAHastaZ());
+
+// 12. ordenar productos de Z a A. pero que todos sean de ubicacion goya.
+
+const productsAhastaZYdeGoya = () => {
+	const productoDeGoya = productos.map((producto) => {
+		return {... producto,
+		ubicacion: "goya",
+		}
+	})
+
+	const productosOrdenados = productos.sort ((a, b) => {
+		if ( a.nombre < b.nombre ) {
+			return -1
+		} if ( a.nombre > b.nombre ) {
+			return 1
+		} 
+		return 0
+	})
+
+	return productosOrdenados && productoDeGoya
+}
+
+console.log(productsAhastaZYdeGoya());
+
+// 13. ordenar productos del mas barato al mas caro. Pero solo los que se puedan pagar con cuotas.
+
+const baratoACaroYConCuotas = () => {
+	const productosOrdenados = productos.sort ((a, b) => {
+		return a.precio - b.precio
+	})
+
+	const productosFree = productos.filter ((producto) => {
+		 if (producto.cuotas === true) {
+			return producto.cuotas
+		}
+	})
+
+	return productosOrdenados && productosFree
+}
+
+console.log(baratoACaroYConCuotas());
