@@ -300,3 +300,20 @@ const baratoACaroYConCuotas = () => {
 }
 
 console.log(baratoACaroYConCuotas());
+
+// 14. cambiar todos las props de los objetos.
+
+const nuevasProps = productos.map((producto) => {
+	return {... producto,
+		categoria: "new Categoria",
+		condicion: "nuevo",
+		cuotas: true,
+		envioInmediato: true,
+		envioGratuito: false,
+		marca: "Iphone",
+		subcategoria: "Sub New Categoría",
+		ubicacion: "goya",
+	}
+})
+
+console.log(nuevasProps);
